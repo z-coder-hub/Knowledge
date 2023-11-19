@@ -1,0 +1,8 @@
+前去官网查看，根据当前的设备查看相对应的配置信息
+中文网：https://reactnative.cn/
+官网：https://reactnative.dev/
+
+
+** 提醒（个人建议）
+MAC中配置ruby使用brew安装，配置好根据安装路径将bin目录添加到 ~/.bash_profile 或者 ~/.zshrc 文件中。
+WINDOWS中配置环境时只需要按官网的顺序配置即可
