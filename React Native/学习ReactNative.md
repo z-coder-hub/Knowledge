@@ -1,5 +1,7 @@
 > 业余爱好自整理一些使用小技巧，满满干货。仅供参考！!
 
+## 可视化知识整理（组件、样式等）
+
 ### `Text`
 
 - `RN`当中所有的显示文本必须放到`Text`组件当中
@@ -45,4 +47,36 @@
 - 数字你可以认为是`px`，我说的是认为，它在不同设备上会有一些差异
 - 百分比字符串就是可以根据父级盒子的高度来决定当前比例
 - flex就是弹性壳子，设置`flex: 1`相当于撑满高度
+
+
+## 非可视化整理（API、原生模块等）
+
+
+### `get IP`
+- ``` jsx
+  if (Platform.OS === 'android') {
+      NativeModules.NetworkInfo.getIPAddress((err, ip) => {
+        if (err) {
+          reject(err);
+        } else {
+          ipAddress = ip;
+          resolve(ipAddress);
+        }
+      });
+    } else {
+      setTimeout(() => {
+        fetch('https://api.ipify.org?format=json')
+          .then((response) => response.json())
+          .then((json) => {
+            ipAddress = json.ip;
+            resolve(ipAddress);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      }, 500);
+    }
+
+### `Platform`
+- `Platform.OS`获取当前手机的型号，返回值时`android || ios`
 
