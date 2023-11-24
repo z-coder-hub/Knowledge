@@ -41,13 +41,14 @@
 
 
 
-### `Height`
+### `Height`和`width`
 
 - 在`RN`中没有像素单位，只有数字单位、百分比字符串、flex
 - 数字你可以认为是`px`，我说的是认为，它在不同设备上会有一些差异
 - 百分比字符串就是可以根据父级盒子的高度来决定当前比例
 - flex就是弹性壳子，设置`flex: 1`相当于撑满高度
 
+<<<<<<< Updated upstream
 
 ## 非可视化整理（API、原生模块等）
 
@@ -80,3 +81,20 @@
 ### `Platform`
 - `Platform.OS`获取当前手机的型号，返回值时`android || ios`
 
+=======
+### `Image`图片
+
+> 完整使用教程 https://reactnative.cn/docs/images
+
+```jsx
+<Image source={require('./my-icon.png')} />
+```
+
+- 这是引入静态图片，这里注意`require`里边中只能是完整的路径，不能用`js`的方式拼接等等
+
+```jsx
+<Image source={{ uri: "网络路径" }} />
+```
+
+- 这是引入网络图片
+>>>>>>> Stashed changes
