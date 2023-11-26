@@ -159,7 +159,75 @@ let a: aType = 'str'
 
 
 
+## 1.13泛型
 
+在 TypeScript 中，泛型（Generics）是一种强大的工具，可以应用于多种情况，不仅仅局限于数组。以下是一些其他常见的泛型用法：
+
+1. **函数泛型：** 可以将泛型应用于函数，使函数能够接受不同类型的参数。
+
+   ```
+   typescriptCopy code
+   function identity<T>(arg: T): T {
+     return arg;
+   }
+   
+   const result: number = identity<number>(42);
+   ```
+
+2. **接口泛型：** 可以在接口中使用泛型，以使接口能够处理不同类型的数据。
+
+   ```
+   typescriptCopy code
+   interface Pair<T, U> {
+     first: T;
+     second: U;
+   }
+   
+   const pair: Pair<number, string> = { first: 1, second: "two" };
+   ```
+
+3. **类泛型：** 可以在类中使用泛型，以处理不同类型的数据。
+
+   ```
+   typescriptCopy code
+   class Box<T> {
+     value: T;
+   
+     constructor(value: T) {
+       this.value = value;
+     }
+   }
+   
+   const numberBox = new Box<number>(42);
+   ```
+
+4. **Promise 泛型：** 在异步编程中，可以使用 Promise 泛型指定异步操作的结果类型。
+
+   ```
+   typescriptCopy code
+   const asyncFunction = (): Promise<number> => {
+     return new Promise((resolve) => {
+       setTimeout(() => resolve(42), 1000);
+     });
+   };
+   
+   asyncFunction().then(result => console.log(result));
+   ```
+
+5. **React 组件泛型：** 在 React 中，可以使用泛型为组件传递不同的 props 类型。
+
+   ```
+   typescriptCopy code
+   interface MyComponentProps<T> {
+     data: T;
+   }
+   
+   const MyComponent = <T extends {}>({ data }: MyComponentProps<T>) => {
+     // 使用泛型类型 T 处理 data
+   };
+   
+   <MyComponent data={{ key: "value" }} />;
+   ```
 
 # 二、TypeScript 断言
 

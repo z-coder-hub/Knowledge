@@ -1,10 +1,35 @@
 > 业余爱好自整理一些使用小技巧，满满干货。仅供参考！!
 
+## 启动项目的命令
+
+### Mac
+
+安装IOS需要的依赖`bundle install`
+
+安装cocoapods所需要的依赖`bundle exec pod install --project-directory=ios`
+
+自动打开xcode并定位到当前的目录`xed ios`
+
+运行到不同设备`npx react-native run-ios --simulator="设备名称 例如 iPad Pro"`
+
+### Android
+
+`yarn android`
+
+`npx react-native run-android`
+
+`yarn react-native run-android`
+
+三条命令作用相同，如果需要指定的模拟器提前打开模拟器之后运行以上命令
+
+
+
 ## 可视化知识整理（组件、样式等）
 
 ### `Text`
 
 - `RN`当中所有的显示文本必须放到`Text`组件当中
+- css上约束很多，如果添加一些高级的样式可以选择外层套一层view组件
 
 ### `View`
 
@@ -48,7 +73,26 @@
 - 百分比字符串就是可以根据父级盒子的高度来决定当前比例
 - flex就是弹性壳子，设置`flex: 1`相当于撑满高度
 
-<<<<<<< Updated upstream
+### 获取状态栏高度
+
+#### IOS
+
+``` js
+import {NativeModules} from 'react-native';
+const {StatusBarManager} = NativeModules;
+// StatusBarManager.HEIGHT 就是状态栏的高度
+```
+
+#### Android
+
+``` js
+import {StatusBar} from 'react-native';
+// StatusBar.currentHeight. 就是状态栏的高度
+```
+
+
+
+
 
 ## 非可视化整理（API、原生模块等）
 
@@ -81,7 +125,7 @@
 ### `Platform`
 - `Platform.OS`获取当前手机的型号，返回值时`android || ios`
 
-=======
+
 ### `Image`图片
 
 > 完整使用教程 https://reactnative.cn/docs/images
