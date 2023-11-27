@@ -92,6 +92,22 @@ import {StatusBar} from 'react-native';
 
 
 
+### `Image`图片
+
+> 完整使用教程 https://reactnative.cn/docs/images
+
+```jsx
+<Image source={require('./my-icon.png')} />
+```
+
+- 这是引入静态图片，这里注意`require`里边中只能是完整的路径，不能用`js`的方式拼接等等
+
+```jsx
+<Image source={{ uri: "网络路径" }} />
+```
+
+- 这是引入网络图片
+
 
 
 ## 非可视化整理（API、原生模块等）
@@ -126,19 +142,21 @@ import {StatusBar} from 'react-native';
 - `Platform.OS`获取当前手机的型号，返回值时`android || ios`
 
 
-### `Image`图片
 
-> 完整使用教程 https://reactnative.cn/docs/images
+### `Type`
 
-```jsx
-<Image source={require('./my-icon.png')} />
+#### `redux的类型`
+
+``` typescript
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 ```
 
-- 这是引入静态图片，这里注意`require`里边中只能是完整的路径，不能用`js`的方式拼接等等
+1. 在定义完store对象之后，需要通过ReturnType+泛型将state的类型创建好
+2. 定义dispatch的类型为store.dispatch
 
-```jsx
-<Image source={{ uri: "网络路径" }} />
+``` tsx
+const state = useSelector((state: RootState) => state.XXX)
+// 在ts中如果没有制定这个类型会提示没有XXX参数
 ```
 
-- 这是引入网络图片
->>>>>>> Stashed changes
