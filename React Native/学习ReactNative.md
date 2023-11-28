@@ -159,7 +159,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 2. 定义dispatch的类型为store.dispatch
 
 ``` tsx
-const state = useSelector((state: RootState) => state.XXX)
+const state = useAppSelector((state) => state.XXX)
 // 在ts中如果没有制定这个类型会提示没有XXX参数
 ```
 
