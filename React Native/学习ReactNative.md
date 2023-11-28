@@ -150,6 +150,9 @@ import {StatusBar} from 'react-native';
 ``` typescript
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch: () => AppDispatch = useDispatch
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 ```
 
 1. 在定义完store对象之后，需要通过ReturnType+泛型将state的类型创建好
