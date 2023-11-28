@@ -160,3 +160,13 @@ const state = useSelector((state: RootState) => state.XXX)
 // 在ts中如果没有制定这个类型会提示没有XXX参数
 ```
 
+#### 样式类型
+- `StyleProp<ViewStyle | TextStyle....>`
+  这个用在封装组件的时候需要传递样式时使用
+  ``` tsx
+  interface HomeProps {
+  	children?: React.ReactNode;
+  	style: StyleProp<ViewStyle> | undefined;
+  }
+  ```
+
