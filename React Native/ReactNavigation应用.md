@@ -58,3 +58,34 @@ function App = () => {
 
    1. `params`对象，接收跳转页面时传递的**参数**`navigation.push('Screen1', { userName:XXX,..... })`这样跳转页面的时候，所带的参数就会传递到`Screen1`这个页面的`route.params`中。
 
+### `TypeScript`
+
+1. 在使用`createNativeStackNavigator`创建路由的时候，要使用自己定义的对象数组类型来制定当前的路由表
+
+   ``` tsx
+   import {NavigationContainer} from '@react-navigation/native'
+   import {createNativeStackNavigator} from '@react-navigation/native-stack'
+   type NativeStackNavigatorList = {
+     Home: undefuned;
+     News: {title:string}; // 这里的意思就是这个News页面中需要这个params传递
+   }// 健是路由名称，类型是一个对象用来指定当前的params的值和类型的对象
+   const Stack = createNativeStackNavigator<NativeStackNavigatorList>()
+   ...
+   <NavigationContainer>
+     <Stack.navigator>
+     	<Stack.Screen name="Home" component={Home}>
+       
+       </Stack.Screen>
+       ...
+     </Stack.navigator>
+   </NavigationContainer>
+   ```
+
+2. `props`的类型
+
+   ``` tsx
+   import {NativeStackScreenProps} from '@react-navigation/native-stack';
+   type Props = NativeStackScreenProps<NativeStackNavigatorList>
+   ```
+
+   
