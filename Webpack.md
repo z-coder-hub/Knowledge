@@ -156,3 +156,52 @@ module.exports = {
 }
 ```
 
+
+
+### 优化
+
+#### HotModuleReplacement
+
+默认情况在文件修改后webpack会重新打包所有的代码，打开热模块加载就只会打包修改部分的代码
+
+HotModuleReplacement（HMR/热模块替换）：在程序运行中，替换、添加或删除模块，而无需重新加载整个页面。
+
+1. 基本配置
+
+```javascript
+module.exports = {
+  // 其他省略
+  devServer: {
+    host: "localhost", // 启动服务器域名
+    port: "3000", // 启动服务器端口号
+    open: true, // 是否自动打开浏览器
+    hot: true, // 开启HMR功能（只能用于开发环境，生产环境不需要了）
+  },
+};
+```
+
+#### OneOf
+
+使用原因，webpack匹配loader是依次匹配，虽然匹配成功也会继续向下匹配
+
+使用结果：只能匹配上一个 loader, 剩下的就不匹配了。
+
+##### 怎么用
+
+```javascript
+module: {
+    rules: [
+      {
+        oneOf: [
+          把所有的loader放到oneOf中
+        ]
+      }
+   ]
+}
+```
+
+
+
+#### Include/Exclude
+
+使用原因：可以只处理部分文件或者不处理部分文件
